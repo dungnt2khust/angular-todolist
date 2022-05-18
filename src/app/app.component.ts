@@ -6,6 +6,7 @@ import {
   OnDestroy,
 } from '@angular/core';
 import { computed } from 'mobx-angular';
+import { Todo } from './model/models/Todo';
 
 @Component({
   selector: 'my-app',
@@ -14,26 +15,17 @@ import { computed } from 'mobx-angular';
 })
 export class AppComponent implements OnInit, OnChanges, OnDestroy {
   // Valiable
-  name = 'Angular ' + VERSION.major;
-  todo = '';
-  listTodos = [
-    {
-      message: 'dfsadfsfs',
-      check: true,
-    },
-    {
-      message: 'sdfsafsafs',
-    },
-    {
-      message: 'afsdfasfs',
-      check: true,
-    },
-  ];
-  placeholder = 'Add a work !';
+  name: string = 'Angular ' + VERSION.major;
+  todo: string = '';
+  listTodos: Array<Todo> = [];
+  placeholder: string = 'Add a work !';
 
   // Hook
   ngOnInit() {
-    console.log('init');
+    var listTodos = localStorage.getItem('listtodo');
+    if (listTodos) {
+      this.listTodos = JSON.parse(listTodos);
+    }
   }
   ngOnChanges() {
     console.log('change');
@@ -57,7 +49,8 @@ export class AppComponent implements OnInit, OnChanges, OnDestroy {
       alert('Todo is empty !');
       this.focusInput();
     } else {
-      this.listTodos.push({ message: this.todo });
+      this.listTodos.push({ message: this.todo, check: false });
+      this.saveData();
       this.todo = '';
       this.focusInput();
     }
@@ -65,17 +58,19 @@ export class AppComponent implements OnInit, OnChanges, OnDestroy {
   deleteTodo(i) {
     this.listTodos.splice(i, 1);
     this.focusInput();
+    this.saveData();
   }
   checkTodo(i) {
-    var listTodos = JSON.parse(JSON.stringify(this.listTodos));
-    listTodos[i].check = !listTodos[i].check;
-    this.listTodos = listTodos;
-    console.log(this.listTodos);
+    this.listTodos[i].check = !this.listTodos[i].check;
+    this.saveData();
     this.focusInput();
   }
   focusInput() {
     if (document.getElementById('inputAdd')) {
       document.getElementById('inputAdd').focus();
     }
+  }
+  saveData() {
+    localStorage.setItem('listtodo', JSON.stringify(this.listTodos));
   }
 }

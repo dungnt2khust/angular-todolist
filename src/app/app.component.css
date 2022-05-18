@@ -1,3 +1,8 @@
 #app {
   height: 100vh;
 }
+.app__listtodo {
+  margin-top: 10px;
+  border: 1px solid #34b057;
+  border-radius: 4px;
+}

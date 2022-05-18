@@ -9,6 +9,7 @@ import { InputangularComponent } from './components/inputangular/inputangular.co
 import { ButtonangularComponent } from './components/buttonangular/buttonangular.component';
 import { ListtodoComponent } from './components/listtodo/listtodo.component';
 import { CardComponent } from './components/card/card.component';
+import { EmptystateComponent } from './components/emptystate/emptystate.component';
 
 @NgModule({
   imports: [BrowserModule, FormsModule, FontAwesomeModule],
@@ -19,6 +20,7 @@ import { CardComponent } from './components/card/card.component';
     ButtonangularComponent,
     ListtodoComponent,
     CardComponent,
+    EmptystateComponent,
   ],
   bootstrap: [AppComponent],
 })

@@ -49,12 +49,18 @@
       </card>
     </div>
   </div>
-  <listtodo
-    class="flex-grow-1"
+  <div
+    class="app__listtodo flex-grow-1 d-flex flex-grow"
     style="min-height: 0; overflow: auto;"
-    [listTodos]="listTodos"
-    (deleteTodo)="deleteTodo($event)"
-    (checkTodo)="checkTodo($event)"
-  ></listtodo>
+  >
+    <listtodo
+      *ngIf="listTodos.length"
+      class="w-100"
+      [listTodos]="listTodos"
+      (deleteTodo)="deleteTodo($event)"
+      (checkTodo)="checkTodo($event)"
+    ></listtodo>
+    <emptystate *ngIf="!listTodos.length"></emptystate>
+  </div>
   <hello name="{{ name }}"></hello>
 </div>
