@@ -23,9 +23,6 @@
     &-content {
     }
     &-delete {
-      display: none;
-    }
-    &:hover &-delete {
       display: block;
       color: red;
       cursor: pointer;
