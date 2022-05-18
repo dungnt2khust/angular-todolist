@@ -2,7 +2,6 @@ html {
   background-color: var(--primaryColor);
 }
 #app {
-  height: 100vh;
   background-color: var(--primaryColor);
   color: var(--textColor);
   transition: background 0.2s linear;
