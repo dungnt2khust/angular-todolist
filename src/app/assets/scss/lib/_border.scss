@@ -1,0 +1,20 @@
+@mixin setBorderRadius() {
+    @for $size from 1 to 50 {
+        .#{'border-radius-' + $size} {
+            border-radius: $size + px;
+        }
+        .#{'border-radius-top-left' + $size} {
+            border-top-left-radius: $size + px;
+        }
+        .#{'border-radius-top-right' + $size} {
+            border-top-right-radius: $size + px;
+        }
+        .#{'border-radius-bottom-left' + $size} {
+            border-bottom-left-radius: $size + px;
+        }
+        .#{'border-radius-bottom-right' + $size} {
+            border-bottom-right-radius: $size + px;
+        }
+    }
+}
+@include setBorderRadius();

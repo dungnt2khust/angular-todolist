@@ -1,0 +1,20 @@
+@mixin setTranslate() {
+    @for $size from -100 to 100 {
+        .#{'translate-x-' + $size} {
+            transform: translateX($size + px);
+        }
+
+        .#{'translate-x-percent-' + $size} {
+            transform: translateX(#{$size + '%'});
+        }
+
+        .#{'translate-y-' + $size} {
+            transform: translateY($size + px);
+        }
+
+        .#{'translate-y-percent-' + $size} {
+            transform: translateY(#{$size + '%'});
+        }
+    }
+}
+@include setTranslate();

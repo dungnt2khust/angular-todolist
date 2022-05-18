@@ -1,0 +1,56 @@
+@mixin setZIndex($name) {
+  @for $zindex from 0 to 2000 {
+    @if $zindex % 5==0 {
+      .#{'zindex-' + $name + '-' + $zindex} {
+        z-index: $zindex;
+      }
+    }
+  }
+}
+
+@for $zindex from 0 to 2000 {
+  @if $zindex % 5==0 {
+    .#{'zindex-' + $zindex} {
+      z-index: $zindex !important;
+    }
+
+    .#{'z-index-' + $zindex} {
+      z-index: $zindex !important;
+    }
+  }
+}
+
+.z-index-inherit {
+  z-index: inherit !important;
+}
+
+// XS
+@media (max-width: 575px) {
+  @include setZIndex('xs')
+}
+
+// SM
+@media (min-width: 576px) and (max-width: 767px) {
+  @include setZIndex('sm')
+}
+
+// MD
+@media (min-width: 768px) and (max-width: 991px) {
+  @include setZIndex('md')
+}
+
+// LG
+@media (min-width: 992px) and (max-width: 1199px) {
+  @include setZIndex('lg')
+}
+
+// XL
+@media (min-width: 1200px) and (max-width: 1399px) {
+  @include setZIndex('xl')
+}
+
+// XXL
+@media (max-width: 1400px) {
+
+  @include setZIndex('xxl')
+}

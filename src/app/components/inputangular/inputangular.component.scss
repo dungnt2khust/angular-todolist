@@ -1,0 +1,6 @@
+input {
+  border: 1px solid #888;
+  &:focus {
+    border: 1px solid #34b057;
+  }
+}

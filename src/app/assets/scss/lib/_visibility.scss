@@ -1,0 +1,39 @@
+@mixin setPosition($name) {
+    .#{'visibility-hidden-' + $name} {
+      visibility: hidden;
+    }
+    .#{'visibility-visible-' + $name} {
+      visibility: visible;
+    }
+}
+
+// XS
+@media (max-width: 575px) {
+  @include setPosition('xs')
+}
+
+// SM
+@media (min-width: 576px) and (max-width: 767px) {
+  @include setPosition('sm')
+}
+
+// MD
+@media (min-width: 768px) and (max-width: 991px) {
+  @include setPosition('md')
+}
+
+// LG
+@media (min-width: 992px) and (max-width: 1199px) {
+  @include setPosition('lg')
+}
+
+// XL
+@media (min-width: 1200px) and (max-width: 1399px) {
+  @include setPosition('xl')
+}
+
+// XXL
+@media (max-width: 1400px) {
+
+  @include setPosition('xxl')
+}

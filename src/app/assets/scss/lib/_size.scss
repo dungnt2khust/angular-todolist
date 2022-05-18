@@ -1,0 +1,68 @@
+@mixin setSize() {
+  @for $size from 0 to 101 {
+    .#{'min-w-' + $size} {
+      min-width: #{$size + '%'};
+    }
+    .#{'max-w-' + $size} {
+      max-width: #{$size + '%'};
+    }
+    .#{'min-h-' + $size} {
+      min-height: #{$size + '%'};
+    }
+    .#{'max-h-' + $size} {
+      max-height: #{$size + '%'};
+    }
+  }
+}
+@mixin setSizeResponsive($name) {
+  @for $size from 0 to 101 {
+    .#{'min-w-' + $name + '-' + $size} {
+      min-width: #{$size + '%'};
+    }
+    .#{'max-w-' + $name + '-' + $size} {
+      max-width: #{$size + '%'};
+    }
+    .#{'min-h-' + $name + '-' + $size} {
+      min-height: #{$size + '%'};
+    }
+    .#{'max-h-' + $name + '-' + $size} {
+      max-height: #{$size + '%'};
+    }
+    .#{'w-' + $name + '-' + $size} {
+      width: #{$size + '%'};
+    }
+    .#{'h-' + $name + '-' + $size} {
+      height: #{$size + '%'};
+    }
+  }
+}
+@include setSize();
+// XS
+@media (max-width: 575px) {
+  @include setSizeResponsive(xs);
+}
+
+// SM
+@media (min-width: 576px) and (max-width: 767px) {
+  @include setSizeResponsive(sm);
+}
+
+// MD
+@media (min-width: 768px) and (max-width: 991px) {
+  @include setSizeResponsive(md);
+}
+
+// LG
+@media (min-width: 992px) and (max-width: 1199px) {
+  @include setSizeResponsive(lg);
+}
+
+// XL
+@media (min-width: 1200px) and (max-width: 1399px) {
+  @include setSizeResponsive(xl);
+}
+
+// XXL
+@media (max-width: 1400px) {
+  @include setSizeResponsive(xxl);
+}

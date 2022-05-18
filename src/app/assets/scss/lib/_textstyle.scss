@@ -1,0 +1,100 @@
+// Text decoration
+.text-capitalize {
+  text-decoration: capitalize;
+}
+.text-uppercase {
+  text-decoration: uppercase;
+}
+.text-lowercase {
+  text-decoration: lowercase;
+}
+.text-bold {
+  font-weight: bold;
+}
+.text-decore-none {
+  text-decoration: none !important;
+}
+.color-none {
+  color: #000 !important;
+}
+.text-through {
+  text-decoration: line-through;
+}
+.text-nowrap {
+  white-space: nowrap;
+}
+
+// Text align
+.text-center {
+  text-align: center;
+}
+.text-left {
+  text-align: left;
+}
+.text-right {
+  text-align: right;
+}
+
+// Text ellipsis
+.text-ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+@mixin setEllipsis() {
+  @for $line from 1 to 10 {
+    .#{'text-ellipsis-' + $line} {
+      display: -webkit-box;
+      -webkit-line-clamp: $line;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+  }
+}
+@include setEllipsis();
+
+// Text font size
+@mixin setFontSize() {
+  @for $size from 1 to 50 {
+    .#{'text-size-' + $size} {
+      font-size: $size + px;
+    }
+  }
+}
+@mixin setFontSizeResponsive($name) {
+  @for $size from 1 to 50 {
+    .#{'text-size-' + $name + '-' + $size} {
+      font-size: $size + px;
+    }
+  }
+}
+@include setFontSize();
+// XS
+@media (max-width: 575px) {
+  @include setFontSizeResponsive(xs);
+}
+
+// SM
+@media (min-width: 576px) and (max-width: 767px) {
+  @include setFontSizeResponsive(sm);
+}
+
+// MD
+@media (min-width: 768px) and (max-width: 991px) {
+  @include setFontSizeResponsive(md);
+}
+
+// LG
+@media (min-width: 992px) and (max-width: 1199px) {
+  @include setFontSizeResponsive(lg);
+}
+
+// XL
+@media (min-width: 1200px) and (max-width: 1399px) {
+  @include setFontSizeResponsive(xl);
+}
+
+// XXL
+@media (max-width: 1400px) {
+  @include setFontSizeResponsive(xxl);
+}

@@ -1,0 +1,53 @@
+// ScrollBar
+@mixin SetScrollBar ($className, $width, $height, $hoverWidth, $hoverHeight, $bgTrack, $bgThumb, $bgThumbHover, $brTrack, $brThumb, $brThumbHover) {
+    .#{$className} {
+        overflow-y: auto;
+        overflow-x: auto;
+
+        /* width */
+        &::-webkit-scrollbar {
+            width: $width + px;
+            height: $height + px;
+
+            &:hover {
+                width: $hoverWidth + px;
+                height: $hoverHeight + px;
+            }
+        }
+
+        /* Track */
+        &::-webkit-scrollbar-track {
+            background: $bgTrack;
+            border-radius: $brTrack + px;
+        }
+
+        /* Handle */
+        &::-webkit-scrollbar-thumb {
+            background: $bgThumb;
+            border-radius: $brThumb + px;
+        }
+
+        /* Handle on hover */
+        &::-webkit-scrollbar-thumb:hover {
+            background: $bgThumbHover;
+            border-radius: $brThumbHover + px;
+        }
+    }
+}
+
+// Default ScrollBar
+@include SetScrollBar(default-scrollbar, 8, 8, 10, 10, #f1f1f1, #888, #555, 4, 4, 0);
+
+// Hidden scrollbar
+.hidden-scrollbar {
+    overflow: auto;
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
+}
+
+// Scroll behavior 
+.scroll-smooth {
+    scroll-behavior: smooth;
+}

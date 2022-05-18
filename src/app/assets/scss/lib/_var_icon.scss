@@ -1,0 +1,44 @@
+// Gán thuộc tính theo các prefix khác nhau
+@mixin makeProperty($property, $value) {
+    @each $prefix in -webkit-, -moz-, -ms-, -o-, "" {
+        #{$prefix}#{$property}: value;
+    }
+}
+
+// Tạo class icon mới
+@mixin setIcon($iconName, $svgSource, $bgPosX, $bgPosY, $width, $height) {
+    .#{$iconName} {
+        background: $svgSource no-repeat $bgPosX $bgPosY;
+        width: $width;
+        height: $height;
+    }
+}
+
+$svgSource1: url('~@/assets/svg/Sprites.6114dba8.svg');
+
+@include setIcon(mi-uncheck, $svgSource1, -560px, -408px, 16px, 16px);
+@include setIcon(mi-check, $svgSource1, -512px, -408px, 16px, 16px);
+@include setIcon(mi-notify-white, $svgSource1, -257px, -88px, 22px, 25px);
+@include setIcon(mi-show, $svgSource1, -931px, -94px, 18px, 12px);
+@include setIcon(mi-hidden, $svgSource1, -987px, -92px, 18px, 16px);
+@include setIcon(mi-plus, $svgSource1, -34px, -314px, 12px, 12px);
+@include setIcon(mi-minus, $svgSource1, -129px, -415px, 13px, 2px);
+@include setIcon(mi-tick, $svgSource1, -899px, -316px, 11px, 8px);
+@include setIcon(mi-edit, $svgSource1, -416px, -312px, 16px, 16px);
+@include setIcon(mi-Delete, $svgSource1, -464px, -313px, 15px, 15px);
+@include setIcon(mi-cancel, $svgSource1, -1178px, -362px, 12px, 12px);
+@include setIcon(mi-image, $svgSource1, -1888px, -562px, 22px, 18px);
+@include setIcon(mi-error, $svgSource1, -752px, -462px, 36px, 36px);
+@include setIcon(mi-info, $svgSource1, -672px, -462px, 36px, 36px);
+@include setIcon(mi-warn, $svgSource1, -598px, -463px, 36px, 37px);
+@include setIcon(mi-question, $svgSource1, -832px, -462px, 36px, 36px);
+@include setIcon(mi-success, $svgSource1, -990px, -462px, 36px, 36px);
+@include setIcon(mi-back, $svgSource1, -1972px, -646px, 20px, 20px);
+
+
+$svgLoading: url('~@/assets/svg/loading.svg');
+@include setIcon(mi-loading, $svgLoading, 0, 0, 32px, 32px);
+
+
+$svgSource2: url('~@/assets/svg/Icon.svg');
+@include setIcon(mi-no-data, $svgSource2, -10px, -509px, 44px, 54px);

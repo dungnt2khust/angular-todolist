@@ -1,0 +1,91 @@
+@mixin setPosition($name) {
+    .#{'position-' + $name + '-static'} {
+      position: static;
+    }
+.#{'position-' + $name + '-relative'} {
+      position: relative;
+    }
+.#{'position-' + $name + '-absolute'} {
+      position: absolute;
+    }
+.#{'position-' + $name + '-fixed'} {
+      position: fixed;
+    }
+
+    .#{'position-' + $name + '-sticky'} {
+      position: sticky;
+    }
+}
+@mixin setPositionSize() {
+    .top-unset {
+        top: 'unset';
+    }
+    .right-unset {
+        right: 'unset';
+    }
+    .left-unset {
+        left: 'unset';
+    }
+    .bottom-unset {
+        top: 'unset';
+    }
+  @for $size from -100 to 100 {
+    .#{'top-' + $size} {
+      top: $size + px;
+    }
+    .#{'top-percent-' + $size} {
+      top: #{$size + '%'};
+    }
+    .#{'left-' + $size} {
+      left: $size + px;
+    }
+    .#{'left-percent-' + $size} {
+      left: #{$size + '%'};
+    }
+    .#{'right-' + $size} {
+      right: $size + px;
+    }
+    .#{'right-percent-' + $size} {
+      right: #{$size + '%'};
+    }
+    .#{'bottom-' + $size} {
+      bottom: $size + px;
+    }
+    .#{'bottom-percent-' + $size} {
+      bottom: #{$size + '%'};
+    }
+
+  }
+}
+@include setPositionSize();
+
+// XS
+@media (max-width: 575px) {
+  @include setPosition('xs')
+}
+
+// SM
+@media (min-width: 576px) and (max-width: 767px) {
+  @include setPosition('sm')
+}
+
+// MD
+@media (min-width: 768px) and (max-width: 991px) {
+  @include setPosition('md')
+}
+
+// LG
+@media (min-width: 992px) and (max-width: 1199px) {
+  @include setPosition('lg')
+}
+
+// XL
+@media (min-width: 1200px) and (max-width: 1399px) {
+  @include setPosition('xl')
+}
+
+// XXL
+@media (max-width: 1400px) {
+
+  @include setPosition('xxl')
+}

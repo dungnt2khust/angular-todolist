@@ -1,0 +1,166 @@
+/* #region Padding */
+// Padding
+@mixin setPaddingAll {
+  @for $size from 2 to 101 {
+    .#{'p-' + $size} {
+      padding: $size + px !important;
+    }
+    .#{'p-x-' + $size} {
+      padding-left: $size + px !important;
+      padding-right: $size + px !important;
+    }
+
+    .#{'p-y-' + $size} {
+      padding-top: $size + px !important;
+      padding-bottom: $size + px !important;
+    }
+
+    .#{'p-h-' + $size} {
+      padding-left: $size + px !important;
+      padding-right: $size + px !important;
+    }
+
+    .#{'p-v-' + $size} {
+      padding-top: $size + px !important;
+      padding-bottom: $size + px !important;
+    }
+
+    .#{'p-r-' + $size} {
+      padding-right: $size + px !important;
+    }
+
+    .#{'p-l-' + $size} {
+      padding-left: $size + px !important;
+    }
+
+    .#{'p-t-' + $size} {
+      padding-top: $size + px !important;
+    }
+
+    .#{'p-b-' + $size} {
+      padding-bottom: $size + px !important;
+    }
+  }
+}
+
+@include setPaddingAll;
+/* #endregion Padding */
+
+/* #region Margin */
+@mixin setMarginAll() {
+  @for $size from 2 to 101 {
+    .#{'m-' + $size} {
+      margin: $size + px !important;
+    }
+
+    .#{'m-h-' + $size} {
+      margin-left: $size + px !important;
+      margin-right: $size + px !important;
+    }
+
+    .#{'m-v-' + $size} {
+      margin-top: $size + px !important;
+      margin-bottom: $size + px !important;
+    }
+    .#{'m-x-' + $size} {
+      margin-left: $size + px !important;
+      margin-right: $size + px !important;
+    }
+
+    .#{'m-y-' + $size} {
+      margin-top: $size + px !important;
+      margin-bottom: $size + px !important;
+    }
+
+    .#{'m-r-' + $size} {
+      margin-right: $size + px !important;
+    }
+
+    .#{'m-l-' + $size} {
+      margin-left: $size + px !important;
+    }
+
+    .#{'m-t-' + $size} {
+      margin-top: $size + px !important;
+    }
+
+    .#{'m-b-' + $size} {
+      margin-bottom: $size + px !important;
+    }
+  }
+}
+
+@include setMarginAll;
+
+// @mixin setMarginResponsive($name) {
+//   @for $size from 0 to 101 {
+//     .#{'m-' + $name + '-' + $size} {
+//       margin: $size + px !important;
+//     }
+
+//     .#{'m-h-' + $name + '-' + $size} {
+//       margin-left: $size + px !important;
+//       margin-right: $size + px !important;
+//     }
+
+//     .#{'m-v-' + $name + '-' + $size} {
+//       margin-top: $size + px !important;
+//       margin-bottom: $size + px !important;
+//     }
+//     .#{'m-x-' + $name + '-' + $size} {
+//       margin-left: $size + px !important;
+//       margin-right: $size + px !important;
+//     }
+
+//     .#{'m-y-' + $name + '-' + $size} {
+//       margin-top: $size + px !important;
+//       margin-bottom: $size + px !important;
+//     }
+
+//     .#{'m-r-' + $name + '-' + $size} {
+//       margin-right: $size + px !important;
+//     }
+
+//     .#{'m-l-' + $name + '-' + $size} {
+//       margin-left: $size + px !important;
+//     }
+
+//     .#{'m-t-' + $name + '-' + $size} {
+//       margin-top: $size + px !important;
+//     }
+
+//     .#{'m-b-' + $name + '-' + $size} {
+//       margin-bottom: $size + px !important;
+//     }
+//   }
+// }
+// // XS
+// @media (max-width: 575px) {
+//   @include setMarginResponsive('xs');
+// }
+
+// // SM
+// @media (min-width: 576px) and (max-width: 767px) {
+//   @include setMarginResponsive('sm');
+// }
+
+// // MD
+// @media (min-width: 768px) and (max-width: 991px) {
+//   @include setMarginResponsive('md');
+// }
+
+// // LG
+// @media (min-width: 992px) and (max-width: 1199px) {
+//   @include setMarginResponsive('lg');
+// }
+
+// // XL
+// @media (min-width: 1200px) and (max-width: 1399px) {
+//   @include setMarginResponsive('xl');
+// }
+
+// // XXL
+// @media (max-width: 1400px) {
+//   @include setMarginResponsive('xxl');
+// }
+/* #endregion Margin */

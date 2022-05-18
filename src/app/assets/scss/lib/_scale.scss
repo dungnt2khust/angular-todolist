@@ -1,0 +1,45 @@
+@mixin setScale($name) {
+    @for $scale from 1 to 51 {
+        $residuals: $scale % 10;
+        $natural: ($scale - $residuals) / 10;
+        .#{'scale-' + $name + '-' + $natural + '\\.' + $residuals} {
+            transform: scale($scale/10)
+        }
+    }
+}
+
+
+// XS
+@media (max-width: 575px) {
+  @include setScale('xs')
+}
+
+// XXS
+@media (max-width: 300px) {
+  @include setScale('xss')
+}
+// SM
+@media (min-width: 576px) and (max-width: 767px) {
+  @include setScale('sm')
+}
+
+// MD
+@media (min-width: 768px) and (max-width: 991px) {
+  @include setScale('md')
+}
+
+// LG
+@media (min-width: 992px) and (max-width: 1199px) {
+  @include setScale('lg')
+}
+
+// XL
+@media (min-width: 1200px) and (max-width: 1399px) {
+  @include setScale('xl')
+}
+
+// XXL
+@media (max-width: 1400px) {
+
+  @include setScale('xxl')
+}

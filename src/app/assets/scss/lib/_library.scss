@@ -1,0 +1,380 @@
+// Box sizing
+.box-sizing-b {
+    box-sizing: border-box;
+}
+
+// Flex
+.fx-row {
+    display: flex;
+    flex-direction: row;
+}
+
+.aln-i-center {
+    align-items: center;
+}
+
+.aln-i-fend {
+    align-items: flex-end;
+}
+
+.aln-i-fstart {
+    align-items: flex-start;
+}
+
+.aln-i-base {
+    align-items: baseline;
+}
+
+.jus-c-center {
+    justify-content: center;
+}
+
+.jus-c-sbtn {
+    justify-content: space-between;
+}
+
+.jus-c-fend {
+    justify-content: flex-end;
+}
+
+.jus-c-fstart {
+    justify-content: flex-start;
+}
+
+.jus-c-base {
+    justify-content: baseline;
+}
+
+.fx-s-between {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.fx-wrap {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    // align-items: flex-start;
+}
+
+.fx-wrap-h {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    // align-items: flex-start;
+}
+
+.fx-wrap-v {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    // align-items: flex-start;
+}
+
+.wrap {
+    flex-wrap: wrap;
+}
+
+.fx-col {
+    display: flex;
+    flex-direction: column;
+}
+
+@mixin flex {
+    @for $size from 1 to 10 {
+        .#{'flex-' + $size} {
+            flex: $size;
+            min-height: 0;
+        }
+    }
+}
+
+@include flex;
+
+@mixin fxCenter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.fx-center {
+    @include fxCenter;
+}
+
+// Position
+.pos-relative {
+    position: relative;
+}
+
+.pos-sticky {
+    position: sticky;
+}
+
+.pos-absolute {
+    position: absolute;
+}
+.pos-fixed {
+    position: fixed;
+}
+
+// Text
+@mixin setText($name, $family) {
+    .#{'txt-' + $name + '-0'} {
+        font-family: $family, sans-serif;
+        color: #fff;
+    }
+
+    .#{'txt-' + $name + '-1'} {
+        font-family: $family, sans-serif;
+        color: #000;
+    }
+
+    .#{'txt-' + $name + '-2'} {
+        font-family: $family, sans-serif;
+        color: rgb(255, 79, 9);
+    }
+}
+
+@include setText(reg, Notosans-Regular);
+@include setText(smb, Notosans-Semibold);
+@include setText(b, Notosans-Bold);
+
+// Text size
+@for $size from 4 to 51 {
+    .#{'txt-s-' + $size} {
+        font-size: $size + px;
+    }
+}
+
+// Text transform
+.txt-align-center {
+    text-align: center;
+}
+
+.txt-align-left {
+    text-align: left;
+}
+
+.txt-align-right {
+    text-align: right;
+}
+
+.txt-uppercase {
+    text-transform: uppercase;
+}
+
+.txt-lowercase {
+    text-transform: lowercase;
+}
+
+.txt-capitalize {
+    text-transform: capitalize;
+}
+
+.hov-act-d {
+    &:hover {
+        opacity: 0.8;
+    }
+
+    &:active {
+        opacity: 1;
+    }
+}
+
+// Gutter
+@mixin setGutter () {
+    @for $gut from 2 to 33 {
+        .#{'gut-'+ $gut} {
+            margin-left: -$gut + px !important;
+            margin-right: -$gut + px !important;
+
+            &>.row> [class*="col"] {
+                padding-left: $gut + px !important;
+                padding-right: $gut + px !important;
+            }
+
+            &> [class*="col"] {
+                padding-left: $gut + px !important;
+                padding-right: $gut + px !important;
+            }
+        }
+
+        .#{'gut-h-'+ $gut} {
+            margin-left: -$gut + px !important;
+            margin-right: -$gut + px !important;
+
+            &>.row> [class*="col"] {
+                padding-left: $gut + px !important;
+                padding-right: $gut + px !important;
+            }
+
+            &>[class*="col"] {
+                padding-left: $gut + px !important;
+                padding-right: $gut + px !important;
+            }
+        }
+
+        .#{'gut-v-'+$gut} {
+            margin-top: -$gut + px !important;
+            margin-bottom: -$gut + px !important;
+
+            &>.row> [class*="col"] {
+                margin-top: $gut + px !important;
+                margin-bottom: $gut + px !important;
+            }
+
+            &>[class*="col"] {
+                margin-top: $gut + px !important;
+                margin-bottom: $gut + px !important;
+            }
+        }
+    }
+}
+
+@include setGutter;
+
+// Order 
+@mixin setOrder ($name) {
+    @for $order from 1 to 21 {
+        .#{'order-' + $name + '-' + $order} {
+            order: $order !important;
+        }
+    }
+}
+
+/* PC medium resolution > */
+@media (min-width: 1113px) {}
+
+/* >= Tablet */
+@media (max-width: 739px) {
+    @include setOrder(sm);
+}
+
+/* Tablet - PC low resolution */
+@media (min-width: 740px) and (max-width: 1023px) {
+    @include setOrder(xs);
+}
+
+/* > PC low resolution */
+@media (min-width: 1024px) and (max-width: 1239px) {
+    @include setOrder(xl);
+}
+
+/* PC height resolution */
+@media (min-width: 1240px) {
+    @include setOrder(lg);
+}
+
+// Icons
+@mixin setIcon {
+    @for $size from 4 to 51 {
+        @if $size % 2==0 {
+            .#{'mi-' +  $size} {
+                @include fxCenter;
+                width: $size + px;
+                height: $size + px;
+            }
+        }
+    }
+}
+
+@include setIcon;
+
+/* #region Width & height */
+@mixin setSize {
+    .w-full {
+        width: 100%;
+    }
+
+    .h-full {
+        height: 100%;
+    }
+
+    .w-fit {
+        width: fit-content;
+    }
+
+    .h-fit {
+        height: fit-content;
+    }
+
+    @for $i from 0 to 13 {
+        $size: percentage(1 / 12 * $i);
+
+        .#{'w-' + $i} {
+            width: $size !important;
+        }
+
+        .#{'h-' + $i} {
+            height: $size !important;
+        }
+    }
+}
+
+@include setSize;
+/* #endregion Width & Height */
+
+// Display 
+// .d-block {
+//     display: block;
+// }
+
+// .d-none {
+//     display: none;
+// }
+
+// Rotate
+@mixin setRotateAll {
+    @for $size from 0 to 361 {
+        @if $size % 15==0 {
+            .#{'rotate-' +  $size} {
+                transform: rotate($size + deg);
+            }
+
+            .#{'rotate--' + $size} {
+                transform: rotate(-$size + deg);
+            }
+        }
+    }
+}
+
+
+
+@include setRotateAll;
+
+// Transition
+@mixin setTransition($transition_name, $duration) {
+    .#{$transition_name} {
+        transition: all linear;
+        transition-duration: $duration + s;
+    }
+}
+
+@include setTransition(transition-0\.1, 0.1);
+@include setTransition(transition-0\.2, 0.2);
+@include setTransition(transition-0\.3, 0.3);
+@include setTransition(transition-0\.4, 0.4);
+@include setTransition(transition-0\.5, 0.5);
+// Scale 
+@mixin setScale() {
+    @for $scale from 1 to 51 {
+        $residuals: $scale % 10;
+        $natural: ($scale - $residuals) / 10;
+
+        .#{'scale-' + $natural + '\\.' + $residuals} {
+            transform: scale($scale/10)
+        }
+    }
+}
+
+@include setScale;
+
+// User select
+.no-select {
+    user-select: none;
+}
+
+.text-color {
+    color: $textColor;
+}
