@@ -2,8 +2,8 @@ import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'hello',
-  template: `<h5 class="position-fixed">{{name}}</h5>`,
-  styles: [`h5 { font-family: sans-serif; bottom: 10px; right: 10px; }`],
+  template: `<h5>{{name}}</h5>`,
+  styles: [`h5 { font-family: sans-serif; margin-top: 20px;}`],
 })
 export class HelloComponent {
   @Input() name: string;

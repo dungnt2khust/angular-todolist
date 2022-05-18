@@ -3,6 +3,8 @@
   type="text"
   [value]="todo"
   [placeholder]="placeholder"
-  (change)="onChanged($event)"
+  (input)="onChanged($event)"
+  (keydown.Enter)="onEnter()"
+  id="inputAdd"
 />
 <!-- placeholder="{{placeholder}}" -->

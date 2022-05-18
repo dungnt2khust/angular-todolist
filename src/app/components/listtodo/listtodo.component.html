@@ -1,8 +1,22 @@
 <div class="listtodo">
-  <div class="listtodo__item" *ngFor="let todo of listTodos; let i = index">
-    <div class="listtodo__item-content">
-    {{ i + 1 + '. ' + todo }}
+  <div
+    class="listtodo__item d-flex justify-content-between"
+    *ngFor="let todo of listTodos; let i = index"
+  >
+    <div class="d-flex flex-grow-1">
+      <div
+        (click)="checkTodo(i)"
+        class="listtodo__item-check"
+        [class]="{ selected: todo.check }"
+      >
+        <fa-icon [icon]="faCircleCheck"></fa-icon>
+      </div>
+      <div class="listtodo__item-content">
+        {{ i + 1 + '. ' + todo.message }}
+      </div>
     </div>
-    <div class="listtodo__item-cancel"></div>
+    <div (click)="deleteTodo(i)" title="Delete" class="listtodo__item-delete">
+      <fa-icon [icon]="faBan"></fa-icon>
+    </div>
   </div>
 </div>

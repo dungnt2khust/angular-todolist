@@ -6,14 +6,25 @@ import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
   styleUrls: ['./inputangular.component.scss'],
 })
 export class InputangularComponent implements OnInit {
+  // Input
   @Input() todo: String;
   @Input() placeholder: String;
-  @Output('todoChange') change = new EventEmitter<string>();
 
+  // Output
+  @Output('todoChange') todoChangeEvent = new EventEmitter<string>();
+  @Output('inputEnter') inputEnterEvent = new EventEmitter<string>();
+
+  // Contructor
   constructor() {}
 
+  // Hook
   ngOnInit() {}
+
+  // Methods
   onChanged(event) {
-    this.change.emit(event.target.value);
+    this.todoChangeEvent.emit(event.target.value);
+  }s
+  onEnter() {
+    this.inputEnterEvent.emit();
   }
 }

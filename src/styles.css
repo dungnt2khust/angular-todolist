@@ -46,3 +46,11 @@ input::-webkit-inner-spin-button {
 input[type='number'] {
   -moz-appearance: textfield;
 }
+
+/* flex */
+.row.gut-4 {
+  margin: 0 -4px;
+}
+.row.gut-4 > [class*='col'] {
+  padding: 0 4px;
+}

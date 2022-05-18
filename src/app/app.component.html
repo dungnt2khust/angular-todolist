@@ -1,4 +1,4 @@
-<div id="app" class="container-sm">
+<div id="app" class="container-sm d-flex flex-column">
   <!-- Version of Angular -->
   <h2 class="text-center">
     TodoList by
@@ -10,12 +10,51 @@
     <inputangular
       placeholder="{{ placeholder }}"
       [(todo)]="todo"
+      (inputEnter)="addTodo()"
       class="flex-grow-1"
     >
     </inputangular>
     <buttonangular style="margin-left: 8px" name="Add" (addTodo)="addTodo()">
     </buttonangular>
   </div>
-  <listtodo [listTodos]="listTodos"></listtodo>
+  <div class="row gut-4">
+    <div class="col-4">
+      <card>
+        <h3>
+          <div class="d-flex flex-column">
+            All
+            <h1 class="text-center">{{ todoInfo.All }}</h1>
+          </div>
+        </h3>
+      </card>
+    </div>
+    <div class="col-4">
+      <card color="blue">
+        <h3>
+          <div class="d-flex flex-column">
+            Done
+            <h1 class="text-center">{{ todoInfo.Done }}</h1>
+          </div>
+        </h3>
+      </card>
+    </div>
+    <div class="col-4">
+      <card color="orange">
+        <h3>
+          <div class="d-flex flex-column">
+            Todo
+            <h1 class="text-center">{{ todoInfo.Todo }}</h1>
+          </div>
+        </h3>
+      </card>
+    </div>
+  </div>
+  <listtodo
+    class="flex-grow-1"
+    style="min-height: 0; overflow: auto;"
+    [listTodos]="listTodos"
+    (deleteTodo)="deleteTodo($event)"
+    (checkTodo)="checkTodo($event)"
+  ></listtodo>
   <hello name="{{ name }}"></hello>
 </div>
