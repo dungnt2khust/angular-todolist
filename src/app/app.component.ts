@@ -5,6 +5,7 @@ import {
   OnChanges,
   OnDestroy,
 } from '@angular/core';
+import { Meta } from '@angular/platform-browser';
 import { computed } from 'mobx-angular';
 import { Todo } from './model/models/Todo';
 import { faSun, faMoon } from '@fortawesome/free-solid-svg-icons';
@@ -25,6 +26,12 @@ export class AppComponent implements OnInit, OnChanges, OnDestroy {
   todo: string = '';
   listTodos: Array<Todo> = [];
   placeholder: string = 'Add a work !';
+  constructor(private meta: Meta) {
+    this.meta.addTag({
+      name: 'viewport',
+      content: 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no',
+    });
+  }
 
   // Hook
   ngOnInit() {
