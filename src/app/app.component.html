@@ -66,7 +66,7 @@
     <div class="d-flex align-items-center justify-content-between">
       <hello name="{{ name }}"></hello>
       <div style="width: 65px;">
-        <input type="checkbox" class="checkbox" id="chk" />
+        <input [(ngModel)]="dark" type="checkbox" class="checkbox" id="chk" />
         <label (click)="toggleTheme()" class="label" for="chk">
           <fa-icon class="fa-moon" [icon]="faMoon"></fa-icon>
           <fa-icon class="fa-sun" [icon]="faSun"></fa-icon>

@@ -19,6 +19,7 @@ export class AppComponent implements OnInit, OnChanges, OnDestroy {
   // Valiable
   faSun = faSun;
   faMoon = faMoon;
+  dark = false;
   faFileCircleXmark = faFileCircleXmark;
   name: string = 'Angular ' + VERSION.major;
   todo: string = '';
@@ -35,6 +36,8 @@ export class AppComponent implements OnInit, OnChanges, OnDestroy {
     var theme = localStorage.getItem('theme');
     if (theme) {
       this.setTheme(theme);
+      if (theme == 'dark') this.dark = true;
+      else this.dark = false;
     }
     var listTodos = localStorage.getItem('listtodo');
     if (listTodos) {
