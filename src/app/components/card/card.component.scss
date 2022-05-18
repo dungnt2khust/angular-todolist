@@ -4,10 +4,10 @@
   background-color: #0080003f;
   margin-top: 10px;
   color: green;
-  &.card--blue {
-    border: 1px solid blue;
-    color: blue;
-    background-color: rgba(0, 0, 255, 0.226);
+  &.card--pink {
+    border: 1px solid rgb(216, 64, 178);
+    color: rgb(210, 59, 230);
+    background-color: rgba(231, 86, 224, 0.226);
   }
   &.card--orange {
     border: 1px solid orange;

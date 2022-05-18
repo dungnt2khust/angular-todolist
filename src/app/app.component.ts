@@ -7,6 +7,8 @@ import {
 } from '@angular/core';
 import { computed } from 'mobx-angular';
 import { Todo } from './model/models/Todo';
+import { faSun, faMoon } from '@fortawesome/free-solid-svg-icons';
+import { faFileCircleXmark } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'my-app',
@@ -15,6 +17,9 @@ import { Todo } from './model/models/Todo';
 })
 export class AppComponent implements OnInit, OnChanges, OnDestroy {
   // Valiable
+  faSun = faSun;
+  faMoon = faMoon;
+  faFileCircleXmark = faFileCircleXmark;
   name: string = 'Angular ' + VERSION.major;
   todo: string = '';
   listTodos: Array<Todo> = [];
@@ -22,6 +27,12 @@ export class AppComponent implements OnInit, OnChanges, OnDestroy {
 
   // Hook
   ngOnInit() {
+    const chk = document.getElementById('chk');
+
+    chk.addEventListener('change', () => {
+      document.body.classList.toggle('dark');
+    });
+    this.setTheme('light');
     var listTodos = localStorage.getItem('listtodo');
     if (listTodos) {
       this.listTodos = JSON.parse(listTodos);
@@ -72,5 +83,17 @@ export class AppComponent implements OnInit, OnChanges, OnDestroy {
   }
   saveData() {
     localStorage.setItem('listtodo', JSON.stringify(this.listTodos));
+  }
+  setTheme(theme) {
+    var html = document.documentElement;
+    html.setAttribute('theme', theme);
+  }
+  toggleTheme() {
+    var html = document.documentElement;
+    if (html.getAttribute('theme') == 'light') {
+      this.setTheme('dark');
+    } else {
+      this.setTheme('light');
+    }
   }
 }

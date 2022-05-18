@@ -54,3 +54,12 @@ input[type='number'] {
 .row.gut-4 > [class*='col'] {
   padding: 0 4px;
 }
+
+[theme='dark'] {
+  --primaryColor: #292c35;
+  --textColor: #fff;
+}
+[theme='light'] {
+  --primaryColor: #fff;
+  --textColor: #292c35;
+}

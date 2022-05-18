@@ -12,6 +12,7 @@ export class ButtonangularComponent implements OnInit {
 
   ngOnInit() {}
   addTodo() {
+    console.log('sfasdf');
     this.change.emit(null);
   }
 }

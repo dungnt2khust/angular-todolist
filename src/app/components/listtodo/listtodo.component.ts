@@ -1,7 +1,10 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { faCoffee } from '@fortawesome/free-solid-svg-icons';
-import { faBan } from '@fortawesome/free-solid-svg-icons';
-import { faCircleCheck } from '@fortawesome/free-solid-svg-icons';
+import {
+  faCoffee,
+  faBan,
+  faCircleCheck,
+} from '@fortawesome/free-solid-svg-icons';
+
 import { Todo } from '../../model/models/Todo';
 
 @Component({
