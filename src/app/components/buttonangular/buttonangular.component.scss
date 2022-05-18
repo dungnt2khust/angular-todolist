@@ -1,0 +1,14 @@
+.button-angular {
+  padding: 4px 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  color: #fff;
+  transition: all ease 0.2s;
+  background-color: #34b057;
+  &:hover {
+    background-color: #02b936;
+  }
+  &:active {
+    background-color: #198f3b;
+  }
+}

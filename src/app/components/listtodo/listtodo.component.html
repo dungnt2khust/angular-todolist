@@ -1,0 +1,8 @@
+<div class="listtodo">
+  <div class="listtodo__item" *ngFor="let todo of listTodos; let i = index">
+    <div class="listtodo__item-content">
+    {{ i + 1 + '. ' + todo }}
+    </div>
+    <div class="listtodo__item-cancel"></div>
+  </div>
+</div>

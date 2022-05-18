@@ -1,1 +1,8 @@
-<input type="text" />
+<input
+  class="w-100"
+  type="text"
+  [value]="todo"
+  [placeholder]="placeholder"
+  (change)="onChanged($event)"
+/>
+<!-- placeholder="{{placeholder}}" -->
