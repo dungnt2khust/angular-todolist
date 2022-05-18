@@ -4,7 +4,7 @@
     *ngFor="let todo of listTodos; let i = index"
     [class]="{ selected: todo.check }"
   >
-    <div class="d-flex flex-grow-1">
+    <div class="d-flex flex-grow-1 align-items-center">
       <div (click)="checkTodo(i)" class="listtodo__item-check">
         <fa-icon [icon]="faCircleCheck"></fa-icon>
       </div>
