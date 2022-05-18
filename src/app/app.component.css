@@ -50,6 +50,7 @@ body {
 }
 
 .label .ball {
+  background-color: #fff;
   border-radius: 50%;
   position: absolute;
   top: 2px;

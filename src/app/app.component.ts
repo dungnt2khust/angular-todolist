@@ -32,7 +32,10 @@ export class AppComponent implements OnInit, OnChanges, OnDestroy {
     chk.addEventListener('change', () => {
       document.body.classList.toggle('dark');
     });
-    this.setTheme('light');
+    var theme = localStorage.getItem('theme');
+    if (theme) {
+      this.setTheme(theme);
+    }
     var listTodos = localStorage.getItem('listtodo');
     if (listTodos) {
       this.listTodos = JSON.parse(listTodos);
@@ -92,8 +95,10 @@ export class AppComponent implements OnInit, OnChanges, OnDestroy {
     var html = document.documentElement;
     if (html.getAttribute('theme') == 'light') {
       this.setTheme('dark');
+      localStorage.setItem('theme', 'dark');
     } else {
       this.setTheme('light');
+      localStorage.setItem('theme', 'light');
     }
   }
 }

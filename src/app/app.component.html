@@ -1,76 +1,78 @@
-<div id="app" class="container-sm d-flex flex-column">
-  <!-- Version of Angular -->
-  <h2 class="text-center">
-    TodoList by
-    <a href="https://www.facebook.com/dung.nguyentien.eddie/" target="_blank"
-      ><i>EddieOnTheCode</i></a
+<div id="app">
+  <div class="container-sm d-flex flex-column h-100">
+    <!-- Version of Angular -->
+    <h2 class="text-center">
+      TodoList by
+      <a href="https://www.facebook.com/dung.nguyentien.eddie/" target="_blank"
+        ><i>EddieOnTheCode</i></a
+      >
+    </h2>
+    <div class="d-flex">
+      <inputangular
+        placeholder="{{ placeholder }}"
+        [(todo)]="todo"
+        (inputEnter)="addTodo()"
+        class="flex-grow-1"
+      >
+      </inputangular>
+      <buttonangular style="margin-left: 8px" name="Add" (addTodo)="addTodo()">
+      </buttonangular>
+    </div>
+    <div class="row gut-4">
+      <div class="col-4">
+        <card>
+          <h3>
+            <div class="d-flex flex-column">
+              All
+              <h1 class="text-center">{{ todoInfo.All }}</h1>
+            </div>
+          </h3>
+        </card>
+      </div>
+      <div class="col-4">
+        <card color="pink">
+          <h3>
+            <div class="d-flex flex-column">
+              Done
+              <h1 class="text-center">{{ todoInfo.Done }}</h1>
+            </div>
+          </h3>
+        </card>
+      </div>
+      <div class="col-4">
+        <card color="orange">
+          <h3>
+            <div class="d-flex flex-column">
+              Todo
+              <h1 class="text-center">{{ todoInfo.Todo }}</h1>
+            </div>
+          </h3>
+        </card>
+      </div>
+    </div>
+    <div
+      class="app__listtodo flex-grow-1 d-flex flex-grow"
+      style="min-height: 0; overflow: auto;"
     >
-  </h2>
-  <div class="d-flex">
-    <inputangular
-      placeholder="{{ placeholder }}"
-      [(todo)]="todo"
-      (inputEnter)="addTodo()"
-      class="flex-grow-1"
-    >
-    </inputangular>
-    <buttonangular style="margin-left: 8px" name="Add" (addTodo)="addTodo()">
-    </buttonangular>
-  </div>
-  <div class="row gut-4">
-    <div class="col-4">
-      <card>
-        <h3>
-          <div class="d-flex flex-column">
-            All
-            <h1 class="text-center">{{ todoInfo.All }}</h1>
-          </div>
-        </h3>
-      </card>
+      <listtodo
+        *ngIf="listTodos.length"
+        class="w-100"
+        [listTodos]="listTodos"
+        (deleteTodo)="deleteTodo($event)"
+        (checkTodo)="checkTodo($event)"
+      ></listtodo>
+      <emptystate *ngIf="!listTodos.length" class="w-100"></emptystate>
     </div>
-    <div class="col-4">
-      <card color="pink">
-        <h3>
-          <div class="d-flex flex-column">
-            Done
-            <h1 class="text-center">{{ todoInfo.Done }}</h1>
-          </div>
-        </h3>
-      </card>
-    </div>
-    <div class="col-4">
-      <card color="orange">
-        <h3>
-          <div class="d-flex flex-column">
-            Todo
-            <h1 class="text-center">{{ todoInfo.Todo }}</h1>
-          </div>
-        </h3>
-      </card>
-    </div>
-  </div>
-  <div
-    class="app__listtodo flex-grow-1 d-flex flex-grow"
-    style="min-height: 0; overflow: auto;"
-  >
-    <listtodo
-      *ngIf="listTodos.length"
-      class="w-100"
-      [listTodos]="listTodos"
-      (deleteTodo)="deleteTodo($event)"
-      (checkTodo)="checkTodo($event)"
-    ></listtodo>
-    <emptystate *ngIf="!listTodos.length" class="w-100"></emptystate>
-  </div>
-  <div class="d-flex align-items-center justify-content-between">
-    <hello name="{{ name }}"></hello>
-    <div style="width: 65px;">
-      <input type="checkbox" class="checkbox" id="chk" />
-      <label (click)="toggleTheme()" class="label" for="chk">
-        <fa-icon class="fa-moon" [icon]="faMoon"></fa-icon>
-        <fa-icon class="fa-sun" [icon]="faSun"></fa-icon>
-        <div class="ball"></div>
-      </label>
+    <div class="d-flex align-items-center justify-content-between">
+      <hello name="{{ name }}"></hello>
+      <div style="width: 65px;">
+        <input type="checkbox" class="checkbox" id="chk" />
+        <label (click)="toggleTheme()" class="label" for="chk">
+          <fa-icon class="fa-moon" [icon]="faMoon"></fa-icon>
+          <fa-icon class="fa-sun" [icon]="faSun"></fa-icon>
+          <div class="ball"></div>
+        </label>
+      </div>
     </div>
   </div>
 </div>
